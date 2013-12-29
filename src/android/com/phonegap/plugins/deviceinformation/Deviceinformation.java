@@ -1,20 +1,17 @@
-package com.vliesaputra.cordova.plugins;
+package com.phonegap.plugins.deviceinformation;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.CordovaInterface;
-import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
+import org.apache.cordova.PluginResult;
 
 public class Deviceinformation extends CordovaPlugin {
 
-    TelephonyManager tm;
-    
     private String checkValue(String str) {
         if ((str == null) || (str.length() == 0)) {
             return "'TM.ERROR'";
@@ -23,16 +20,14 @@ public class Deviceinformation extends CordovaPlugin {
         return "'" + str + "'";
     }
     
-    public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-        super.initialize(cordova, webView);
-        Context context = this.cordova.getActivity().getApplicationContext();
-        tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-    }
+    public Deviceinformation () {}
     
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try {
             if (action.equals("get")) {
-       
+                Context context = this.cordova.getActivity().getApplicationContext();
+                TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+                
                 JSONObject r = new JSONObject();
 
                 r.put("deviceID:", checkValue(tm.getDeviceId()));

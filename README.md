@@ -4,22 +4,11 @@ This plugin allows you to retrieve most information about your Android devices t
 
 ## Adding the Plugin to your project ##
 
-Using this plugin requires [Android PhoneGap](https://github.com/apache/incubator-cordova-android).
+Assuming the PhoneGap CLI is installed, from the command line run:
 
-1. To install the plugin, copy the www/deviceinformation.js file to your project's www folder and include a reference to it in your html file after cordova.js.
-
-    &lt;script type="text/javascript" charset="utf-8" src="phonegap.js"&gt;&lt;/script&gt;<br/>
-    &lt;script type="text/javascript" charset="utf-8" src="deviceinformation.js"&gt;&lt;/script&gt;
-    
-2. Create a directory within your project called "src/com/vliesaputra/cordova/plugins" and copy src/com/vliesaputra/cordova/plugins/DeviceInformation.java into it.
-
-3. In your res/xml/config.xml file add the following line:
-
-    &lt;plugin name="DeviceInformation" value="com.vliesaputra.cordova.plugins.DeviceInformation"/&gt;
+phonegap local plugin add https://github.com/vliesaputra/DeviceInformationPlugin
 
 ## Using the plugin ##
-
-You create a new object that represents the plugin using cordova.require. Then you can call the 'get' method on that object providing a success callback which will be called with a result value that is a JSON object of all the information about your devices.
 
 <pre>
   /**
@@ -29,14 +18,23 @@ You create a new object that represents the plugin using cordova.require. Then y
 </pre>
 
 Sample use:
-
-    var deviceInfo = cordova.require("cordova/plugin/deviceinformation");
-    deviceInfo.get(function(result) {
-            console.log("result = " + result);
-        }, function() {
-            console.log("error");
-    });
-    
+<pre>
+    var onSuccess = function (obj) {
+	alert (
+		"deviceID:" 	+ deviceID  	+ '\n' + 
+                "phoneNo:" 	+ phoneNo  	+ '\n' + 
+                "netCountry:" 	+ netCountry  	+ '\n' + 
+                "netName:"  	+ netName  	+ '\n' + 
+                "simCountry:"  	+ simCountry  	+ '\n' + 
+                "simName:" 	+ simName  	+ '\n');
+    };
+	
+    function onError(error) {
+	alert('Error: '  + error);
+    }
+	
+    deviceinformation.get(onSuccess,onError);
+</pre>    
 
 ## RELEASE NOTES ##
 

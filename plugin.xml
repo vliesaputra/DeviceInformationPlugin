@@ -22,10 +22,10 @@
     <asset src="www/deviceinformation.js" target="deviceinformation.js" />
     
     <platform name="android">
-        <source-file src="src/android/com/phonegap/plugins/deviceinformation/DeviceInformation.java" target-dir="src/com/phonegap/plugins/deviceinformation" />
+        <source-file src="src/android/com/phonegap/plugins/deviceinformation/Deviceinformation.java" target-dir="src/com/phonegap/plugins/deviceinformation" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="Deviceinformation">
-                <param name="android-package" value="com.phonegap.plugins.deviceinformation.DeviceInformation" />
+                <param name="android-package" value="com.phonegap.plugins.deviceinformation.Deviceinformation" />
             </feature>
         </config-file>
 

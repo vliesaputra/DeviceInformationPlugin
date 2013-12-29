@@ -2,7 +2,8 @@ package com.vliesaputra.cordova.plugins;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
-import org.apache.cordova.PluginResult;
+import org.apache.cordova.CordovaInterface;
+import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,43 +11,45 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.telephony.TelephonyManager;
 
-public class DeviceInformation extends CordovaPlugin {
+public class Deviceinformation extends CordovaPlugin {
 
-    private String checkValue (String str) {
+    TelephonyManager tm;
+    
+    private String checkValue(String str) {
         if ((str == null) || (str.length() == 0)) {
             return "'TM.ERROR'";
         }
-        
+
         return "'" + str + "'";
     }
     
-    private String getDetails (TelephonyManager tm) {
-        if (tm == null) {
-            return null;
-        }
-        
-        String str = "{" +
-                        "deviceID:" + checkValue(tm.getDeviceId()) + "," +
-                        "phoneNo:" + checkValue(tm.getLine1Number()) + "," +
-                        "netCountry:" + checkValue(tm.getNetworkCountryIso()) + "," +
-                        "netName:" + checkValue(tm.getNetworkOperatorName()) + "," +
-                        "simCountry:" + checkValue(tm.getSimCountryIso()) + "," +
-                        "simName:" + checkValue(tm.getSimOperatorName()) +
-                    "}";
-        return str;
+    public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+        Context context = cordova.getActivity().getApplicationContext();
+        tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
     }
     
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("get")) {
-            TelephonyManager tm =
-                (TelephonyManager)this.cordova.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
-            String result = getDetails(tm);
-            if (result != null) {
-                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, result));
+        try {
+            if (action.equals("get")) {
+       
+                JSONObject r = new JSONObject();
+
+                r.put("deviceID:", checkValue(tm.getDeviceId()));
+                r.put("phoneNo:", checkValue(tm.getLine1Number()));
+                r.put("netCountry:", checkValue(tm.getNetworkCountryIso()));
+                r.put("netName:", checkValue(tm.getNetworkOperatorName()));
+                r.put("simCountry:", checkValue(tm.getSimCountryIso()));
+                r.put("simName:", checkValue(tm.getSimOperatorName()));
+
+                callbackContext.success(r);
                 return true;
             }
+            callbackContext.error("Invalid action");
+            return false;
+        } catch (Exception e) {
+            System.err.println("Exception: " + e.getMessage());
+            callbackContext.error(e.getMessage());
+            return false;
         }
-        callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.ERROR));
-        return false;
     }
 }

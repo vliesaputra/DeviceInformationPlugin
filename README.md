@@ -57,7 +57,7 @@ The text of the MIT license is reproduced below.
 
 ### The MIT License
 
-Copyright (c) <2013> <Veronica Liesaputra>
+Copyright (c) &lt;2013&gt; Veronica Liesaputra
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal

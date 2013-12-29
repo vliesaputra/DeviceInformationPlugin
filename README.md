@@ -21,12 +21,12 @@ Sample use:
 <pre>
     var onSuccess = function (obj) {
 	alert (
-		"deviceID:" 	+ deviceID  	+ '\n' + 
-                "phoneNo:" 	+ phoneNo  	+ '\n' + 
-                "netCountry:" 	+ netCountry  	+ '\n' + 
-                "netName:"  	+ netName  	+ '\n' + 
-                "simCountry:"  	+ simCountry  	+ '\n' + 
-                "simName:" 	+ simName  	+ '\n');
+		"deviceID:" 	+ obj.deviceID      + '\n' + 
+                "phoneNo:" 	+ obj.phoneNo       + '\n' + 
+                "netCountry:" 	+ obj.netCountry    + '\n' + 
+                "netName:"  	+ obj.netName       + '\n' + 
+                "simCountry:"  	+ obj.simCountry    + '\n' + 
+                "simName:" 	+ obj.simName       + '\n');
     };
 	
     function onError(error) {

@@ -1,28 +1,12 @@
-/*************************************************************************
- * 
- * TBS CONFIDENTIAL
- * __________________
- * 
- * 
- * NOTICE:  All information contained herein is, and remains
- * the property of Total Brand Security (TBS) Incorporated and its suppliers,
- * if any.  The intellectual and technical concepts contained
- * herein are proprietary to Total Brand Security (TBS) Incorporated
- * and its suppliers and may be covered by U.S. and Foreign Patents,
- * patents in process, and are protected by trade secret or copyright law.
- * Dissemination of this information or reproduction of this material
- * is strictly forbidden unless prior written permission is obtained
- * from Total Brand Security (TBS) Incorporated.
- *
- * @author Veronica Liesaputra (2013)
- */
-
 package com.vliesaputra.cordova.plugins;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
 import org.json.JSONArray;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
@@ -53,7 +37,7 @@ public class DeviceInformation extends CordovaPlugin {
         return str;
     }
     
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if (action.equals("get")) {
             TelephonyManager tm =
                 (TelephonyManager)this.cordova.getActivity().getSystemService(Context.TELEPHONY_SERVICE);

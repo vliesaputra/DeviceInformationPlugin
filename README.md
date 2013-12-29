@@ -20,8 +20,8 @@ phonegap local plugin add https://github.com/vliesaputra/DeviceInformationPlugin
 Sample use:
 <pre>
     var onSuccess = function (obj) {
-	alert (
-		"deviceID:" 	+ obj.deviceID      + '\n' + 
+        alert (
+                "deviceID:" 	+ obj.deviceID      + '\n' + 
                 "phoneNo:" 	+ obj.phoneNo       + '\n' + 
                 "netCountry:" 	+ obj.netCountry    + '\n' + 
                 "netName:"  	+ obj.netName       + '\n' + 
@@ -30,7 +30,7 @@ Sample use:
     };
 	
     function onError(error) {
-	alert('Error: '  + error);
+        alert('Error: '  + error);
     }
 	
     deviceinformation.get(onSuccess,onError);

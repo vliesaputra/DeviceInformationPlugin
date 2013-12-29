@@ -24,7 +24,8 @@ public class Deviceinformation extends CordovaPlugin {
     }
     
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-        Context context = cordova.getActivity().getApplicationContext();
+        super.initialize(cordova, webView);
+        Context context = this.cordova.getActivity().getApplicationContext();
         tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
     }
     

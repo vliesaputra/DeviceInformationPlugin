@@ -8,7 +8,7 @@ Using this plugin requires [Android PhoneGap](https://github.com/apache/incubato
 
 1. To install the plugin, copy the www/deviceinformation.js file to your project's www folder and include a reference to it in your html file after cordova.js.
 
-    &lt;script type="text/javascript" charset="utf-8" src="cordova.js"&gt;&lt;/script&gt;<br/>
+    &lt;script type="text/javascript" charset="utf-8" src="phonegap.js"&gt;&lt;/script&gt;<br/>
     &lt;script type="text/javascript" charset="utf-8" src="deviceinformation.js"&gt;&lt;/script&gt;
     
 2. Create a directory within your project called "src/com/vliesaputra/cordova/plugins" and copy src/com/vliesaputra/cordova/plugins/DeviceInformation.java into it.
@@ -35,7 +35,7 @@ Sample use:
             console.log("result = " + result);
         }, function() {
             console.log("error");
-        });
+    });
     
 
 ## RELEASE NOTES ##

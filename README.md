@@ -4,11 +4,26 @@ This plugin allows you to retrieve most information about your Android devices t
 
 ## Adding the Plugin to your project ##
 
-Assuming the PhoneGap CLI is installed, from the command line run:
+Using this plugin requires [Android PhoneGap](https://github.com/apache/incubator-cordova-android).
+
+1. To install the plugin, copy the www/deviceinformation.js file to your project's www folder and include a reference to it in your html file after phonegap.js.
+
+    &lt;script type="text/javascript" charset="utf-8" src="phonegap.js"&gt;&lt;/script&gt;<br/>
+    &lt;script type="text/javascript" charset="utf-8" src="deviceinformation.js"&gt;&lt;/script&gt;
+    
+2. Create a directory within your project called "src/com/vliesaputra/cordova/plugins" and copy src/com/vliesaputra/cordova/plugins/DeviceInformation.java into it.
+
+3. In your res/xml/config.xml file add the following line:
+
+    &lt;plugin name="DeviceInformation" value="com.vliesaputra.cordova.plugins.DeviceInformation"/&gt;
+
+If you have installed PhoneGap CLI, run the following code from the command line:
 
 phonegap local plugin add https://github.com/vliesaputra/DeviceInformationPlugin
 
 ## Using the plugin ##
+
+You create a new object that represents the plugin using cordova.require. Then you can call the 'get' method on that object providing a success callback which will be called with a result value that is a JSON object of all the information about your devices.
 
 <pre>
   /**
@@ -18,23 +33,14 @@ phonegap local plugin add https://github.com/vliesaputra/DeviceInformationPlugin
 </pre>
 
 Sample use:
-<pre>
-    var onSuccess = function (obj) {
-        alert (
-                "deviceID:" 	+ obj.deviceID      + '\n' + 
-                "phoneNo:" 	+ obj.phoneNo       + '\n' + 
-                "netCountry:" 	+ obj.netCountry    + '\n' + 
-                "netName:"  	+ obj.netName       + '\n' + 
-                "simCountry:"  	+ obj.simCountry    + '\n' + 
-                "simName:" 	+ obj.simName       + '\n');
-    };
-	
-    function onError(error) {
-        alert('Error: '  + error);
-    }
-	
-    deviceinformation.get(onSuccess,onError);
-</pre>    
+
+    var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+    deviceInfo.get(function(result) {
+            console.log("result = " + result);
+        }, function() {
+            console.log("error");
+        });
+    
 
 ## RELEASE NOTES ##
 
@@ -55,7 +61,7 @@ The text of the MIT license is reproduced below.
 
 ### The MIT License
 
-Copyright (c) &lt;2013&gt; Veronica Liesaputra
+Copyright (c) <2013> <Veronica Liesaputra>
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal

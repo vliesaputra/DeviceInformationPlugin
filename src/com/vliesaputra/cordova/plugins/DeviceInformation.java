@@ -1,4 +1,4 @@
-package com.phonegap.plugins.deviceinformation;
+package com.vliesaputra.cordova.plugins;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -8,9 +8,8 @@ import org.json.JSONObject;
 
 import android.content.Context;
 import android.telephony.TelephonyManager;
-import org.apache.cordova.PluginResult;
 
-public class Deviceinformation extends CordovaPlugin {
+public class DeviceInformation extends CordovaPlugin {
 
     private String checkValue(String str) {
         if ((str == null) || (str.length() == 0)) {
@@ -20,7 +19,7 @@ public class Deviceinformation extends CordovaPlugin {
         return "'" + str + "'";
     }
     
-    public Deviceinformation () {}
+    public DeviceInformation () {}
     
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try {

@@ -1,19 +1,19 @@
-var DeviceinformationLoader = function (require, exports, module) {
+var DeviceInformationLoader = function (require, exports, module) {
     var exec = require("cordova/exec");
     
-    function Deviceinformation () {};
+    function DeviceInformation () {}
         
-    Deviceinformation.prototype.get = function (successFunc, failFunc) {
-        exec(successFunc, failFunc, "Deviceinformation","get",[]);
+    DeviceInformation.prototype.get = function (successFunc, failFunc) {
+        exec(successFunc, failFunc, "DeviceInformation","get",[]);
     };
     
-    var deviceinformation = new DeviceInformation();
-    module.exports = deviceinformation;
+    var deviceInformation = new DeviceInformation();
+    module.exports = deviceInformation;
 };
 
-DeviceinformationLoader(require, exports, module);
+DeviceInformationLoader(require, exports, module);
 
-cordova.define("cordova/plugin/Deviceinformation", DeviceinformationLoader);
+cordova.define("cordova/plugin/DeviceInformation", DeviceInformationLoader);
 
 
 

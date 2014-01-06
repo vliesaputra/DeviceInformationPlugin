@@ -2,10 +2,10 @@
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="com.phonegap.plugins.deviceinformation"
-        version="1.0.0">
+        id="com.vliesaputra.deviceinformation"
+        version="1.0.1">
     
-    <name>Deviceinformation</name>
+    <name>DeviceInformation</name>
     <description>This plugin will get most of the information available through Android's Telephony Manager class</description>
     <author>Veronica Liesaputra</author>
     <keywords>android, telephony manager, phone number, device information</keywords>
@@ -15,17 +15,17 @@
         <engine name="cordova" version=">=2.9.0" />
     </engines>
     
-    <js-module src="www/deviceinformation.js" name="Deviceinformation">
-        <clobbers target="cordova.plugins.deviceinformation" />
+    <js-module src="www/deviceinformation.js" name="DeviceInformation">
+        <clobbers target="cordova.plugins.deviceInformation" />
     </js-module>
     
     <asset src="www/deviceinformation.js" target="deviceinformation.js" />
     
     <platform name="android">
-        <source-file src="src/android/com/phonegap/plugins/deviceinformation/Deviceinformation.java" target-dir="src/com/phonegap/plugins/deviceinformation" />
+        <source-file src="src/com/vliesaputra/cordova/plugins/DeviceInformation.java" target-dir="src/com/vliesaputra/cordova/plugins" />
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="Deviceinformation">
-                <param name="android-package" value="com.phonegap.plugins.deviceinformation.Deviceinformation" />
+            <feature name="DeviceInformation">
+                <param name="android-package" value="com.vliesaputra.cordova.plugins.DeviceInformation" />
             </feature>
         </config-file>
 

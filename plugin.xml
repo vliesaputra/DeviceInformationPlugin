@@ -6,13 +6,13 @@
         version="1.0.1">
     
     <name>DeviceInformation</name>
-    <description>This plugin will get most of the information available through Android's Telephony Manager class</description>
+    <description>This plugin will get most of the information available through Android's Telephony Manager and Account Manager classes.</description>
     <author>Veronica Liesaputra</author>
-    <keywords>android, telephony manager, phone number, device information</keywords>
+    <keywords>android, telephony manager, phone number, device information, account details</keywords>
     <license>MIT</license>
     
     <engines>
-        <engine name="cordova" version=">=2.9.0" />
+        <engine name="cordova" version=">=3.0.0" />
     </engines>
     
     <js-module src="www/deviceinformation.js" name="DeviceInformation">
@@ -20,9 +20,11 @@
     </js-module>
     
     <asset src="www/deviceinformation.js" target="deviceinformation.js" />
-    
+   
     <platform name="android">
-        <source-file src="src/com/vliesaputra/cordova/plugins/DeviceInformation.java" target-dir="src/com/vliesaputra/cordova/plugins" />
+        
+        <source-file src="src/com/vliesaputra/cordova/plugins/DeviceInformation.java" target-dir="src/com/vliesaputra/cordova/plugins" />		
+        
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="DeviceInformation">
                 <param name="android-package" value="com.vliesaputra.cordova.plugins.DeviceInformation" />
@@ -31,6 +33,7 @@
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
         </config-file>
      </platform>
 

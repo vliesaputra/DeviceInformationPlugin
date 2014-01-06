@@ -1,6 +1,6 @@
 # DeviceInformation plugin for Phonegap #
 
-This plugin allows you to retrieve most information about your Android devices that are available through Android's Telephony Manager class from your PhoneGap application.
+This plugin allows you to retrieve most information about your Android devices that are available through Android's Telephony Manager and Account Manager classes from your PhoneGap application.
 
 ## Adding the Plugin to your project ##
 

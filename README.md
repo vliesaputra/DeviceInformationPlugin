@@ -27,7 +27,7 @@ Otherwise,
 
 ## Using the plugin ##
 
-You create a new object that represents the plugin using cordova.require. Then you can call the 'get' method on that object providing a success callback which will be called with a result value that is a JSON object of all the information about your devices.
+Create a new object that represents the plugin using cordova.require. Then you can call the 'get' method on that object providing a success callback which will be called with a result value that is a JSON object of all the information about your devices.
 
 <pre>
   /**

@@ -1,6 +1,15 @@
 # DeviceInformation plugin for Phonegap #
 
-This plugin allows you to retrieve most information about your Android devices that are available through Android's Telephony Manager and Account Manager classes from your PhoneGap application.
+This plugin allows you to retrieve most information about your Android devices that are available through Android's Telephony Manager and Account Manager classes from your PhoneGap application:
+
+1. Your unique Device ID
+2. Phone Number (if it is stored in your SIM card)
+3. Country ISO of your phone network provider
+4. Name of your network provider
+5. Your SIM Card Serial number
+6. Country ISO of your SIM card
+7. Name of your SIM card mobile operator
+8. E-mail/Phone number used by apps listed in your Settings > Accounts & Sync list
 
 ## Adding the Plugin to your project ##
 

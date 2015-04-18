@@ -18,7 +18,7 @@ public class DeviceInformation extends CordovaPlugin {
             return "'TM.ERROR'";
         }
 
-        return "'" + str + "'";
+        return "\"" + str + "\"";
     }
 
     private String getAccount(AccountManager am) {
@@ -32,8 +32,8 @@ public class DeviceInformation extends CordovaPlugin {
                     str += ",";
                 }
 
-                str += "account" + i + "Name: " + checkValue(accounts[i].name) + ","
-                        + "account" + i + "Type: " + checkValue(accounts[i].type);
+                str += "\"account" + i + "Name\": " + checkValue(accounts[i].name) + ","
+                        + "\"account" + i + "Type\": " + checkValue(accounts[i].type);
             }
         }
 
@@ -44,13 +44,13 @@ public class DeviceInformation extends CordovaPlugin {
         String str = "";
 
         if (tm != null) {
-            str = "deviceID: " + checkValue(tm.getDeviceId()) + ","
-                    + "phoneNo: " + checkValue(tm.getLine1Number()) + ","
-                    + "netCountry: " + checkValue(tm.getNetworkCountryIso()) + ","
-                    + "netName: " + checkValue(tm.getNetworkOperatorName()) + ","
-                    + "simNo: " + checkValue(tm.getSimSerialNumber()) + ","
-                    + "simCountry: " + checkValue(tm.getSimCountryIso()) + ","
-                    + "simName: " + checkValue(tm.getSimOperatorName());
+            str = "\"deviceID\": " + checkValue(tm.getDeviceId()) + ","
+                    + "\"phoneNo\": " + checkValue(tm.getLine1Number()) + ","
+                    + "\"netCountry\": " + checkValue(tm.getNetworkCountryIso()) + ","
+                    + "\"netName\": " + checkValue(tm.getNetworkOperatorName()) + ","
+                    + "\"simNo\": " + checkValue(tm.getSimSerialNumber()) + ","
+                    + "\"simCountry\": " + checkValue(tm.getSimCountryIso()) + ","
+                    + "\"simName\": " + checkValue(tm.getSimOperatorName());
         }
 
         return str;

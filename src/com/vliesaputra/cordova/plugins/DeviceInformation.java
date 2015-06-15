@@ -15,7 +15,7 @@ public class DeviceInformation extends CordovaPlugin {
 
     private String checkValue(String str) {
         if ((str == null) || (str.length() == 0)) {
-            return "'TM.ERROR'";
+            return "\"TM.ERROR\"";
         }
 
         return "\"" + str + "\"";
